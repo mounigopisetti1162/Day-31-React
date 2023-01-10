@@ -1,24 +1,46 @@
-import logo from './logo.svg';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
+import Login from './compo/Login';
 import './App.css';
+import Action from './compo/Action';
+import Protected from './compo/Protectedroutes';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Student from './compo/Student';
+import Teacher from './compo/Teacher';
+import Home from './compo/Home';
+import Allpeople from './compo/Allpeople';
+import Navbar from './compo/Navbar';
+import Provider from './compo/Provider';
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function App() {
+  const islogged=localStorage.getItem('islogged')||'false'
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Provider>
+    <BrowserRouter>
+    <ToastContainer/>
+    <Navbar/>
+    
+      
+    
+    <div className='routes'>
+    <Routes>
+      {/* <Route path='/' element={<Login/>}/> */}
+      
+      
+        <Route path='/Home' element={<Home/>}/>
+      <Route path='/people' element={<Allpeople/>}/>
+      <Route path='/action' element={<Action/>}/>
+        <Route path='/action/:id' element={<Action/>}/>
+        <Route path='/student'element={<Student/>}/>
+        <Route path='/teacher' element={<Teacher/>}/>
+        </Routes>
+        </div>
+        </BrowserRouter>
+        </Provider>
+    </>
   );
 }
 
