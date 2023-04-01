@@ -18,6 +18,8 @@ export default function Allpeople()
 
 
 
+    
+
     return(
         <>
       

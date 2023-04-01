@@ -12,9 +12,7 @@ export default function CardComponent({data,id})
     const {avatar,name,field,division}=data
     return(
         <>
-        <Card
-       
-    >
+        <Card>
 <CardBody>
       <img alt="Sample" src={avatar} />
         <CardTitle tag="h5">{name}</CardTitle>
